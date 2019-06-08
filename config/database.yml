@@ -10,7 +10,8 @@ development:
   database: codeorder_enterprise_information_system_dev
   username: postgres
   password: root
-  port: 5431
+  host: localhost
+  port: 54321
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
@@ -18,6 +19,10 @@ development:
 test:
   <<: *default
   database: codeorder_enterprise_information_system_test
+  username: postgres
+  password: root
+  host: localhost
+  port: 54321
 
 production:
   <<: *default
