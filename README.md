@@ -7,3 +7,15 @@
 ```
 rake yarn:install
 ```
+
+## 启动PostgreSql
+
+```bash
+docker run --name postgres -e POSTGRES_PASSWORD=root -p 54321:5432 -d postgres
+```
+
+## 连接PostgreSql
+
+```bash
+psql -U postgres -b 127.0.0.1 -p 54321
+```
