@@ -1,27 +1,15 @@
-db:
-  image: postgres
-  environment:
-    - POSTGRES_PASSWORD=root
-app:
-  image: codeorder-system
-  environment:
-    - RAILS_ENV=production
-    - SECRET_KEY_BASE=9fb5184a8dadd907bafc3e25a2ab6fafea4c205d78c0f0eca60c0e1918c1d2945bdefee1df9976f90902394ccab8b71595e87998166fbe6bab7c119be83e34dc
-    - POSTGRES_PASSWORD=root
-  links:
-    - "redis:redis"
-    - "db:postgres"
-  ports:
-    - "8080:3000"
-web:
-  image: nginx
-  links:
-    - app
-  ports:
-    - "8083:80"
-  volumes:
-    - $PWD/docker-conf/nginx:/etc/nginx
-  volumes_from:
-    - app
-redis:
-  image: registry.cn-hangzhou.aliyuncs.com/acs-sample/redis-sameersbn:latest
+version: '3'
+services:
+  db:
+    image: postgres
+    volumes:
+      - ./tmp/db:/var/lib/postgresql/data
+  web:
+    build: .
+    command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
+    volumes:
+      - .:/myapp
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db
