@@ -11,9 +11,11 @@ module Customer
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 5.1
 
-    # 禁止生成针对控制器的静态资源文件
     config.generators do |g|
-      g.assets false
+      g.assets false # 不让生成器生成scss、css、js
+      g.scaffold_stylesheet false
+      g.stylesheets     false
+      g.javascripts     false
     end
 
     config.time_zone = 'Beijing'
