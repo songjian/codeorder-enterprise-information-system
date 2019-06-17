@@ -1,3 +1,3 @@
 #!/bin/bash
 rails g scaffold Member --parent=User
-rails g controller Admin/Members
+rails g scaffold_controller Admin/Members
