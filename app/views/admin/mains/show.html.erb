@@ -13,7 +13,7 @@
 <section class="content">
   <!-- Small boxes (Stat box) -->
   <div class="row">
-    <div class="col-lg-4 col-xs-4">
+    <div class="col-lg-3 col-xs-3">
       <!-- small box -->
       <div class="small-box bg-aqua">
         <div class="inner">
@@ -31,7 +31,7 @@
       </div>
     </div>
     <!-- ./col -->
-    <div class="col-lg-4 col-xs-4">
+    <div class="col-lg-3 col-xs-3">
       <!-- small box -->
       <div class="small-box bg-green">
         <div class="inner">
@@ -48,13 +48,29 @@
       </div>
     </div>
     <!-- ./col -->
-    <div class="col-lg-4 col-xs-4">
+    <div class="col-lg-3 col-xs-3">
       <!-- small box -->
       <div class="small-box bg-yellow">
         <div class="inner">
           <h3><%= Job.count %></h3>
 
           <p>职位</p>
+        </div>
+        <div class="icon">
+          <i class="ion ion-person-add"></i>
+        </div>
+        <%= link_to admin_jobs_path, class: 'small-box-footer' do %>
+          查看更多 <i class="fa fa-arrow-circle-right"></i></a>
+        <% end %>
+      </div>
+    </div>
+    <div class="col-lg-3 col-xs-3">
+      <!-- small box -->
+      <div class="small-box bg-red">
+        <div class="inner">
+          <h3><%= Job.count %></h3>
+
+          <p>会员单位</p>
         </div>
         <div class="icon">
           <i class="ion ion-person-add"></i>
