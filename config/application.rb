@@ -12,6 +12,7 @@ module Customer
     config.load_defaults 5.1
 
     config.generators do |g|
+      g.test_framework  :test_unit, fixture: false # 不生成测试文件
       g.assets false # 不让生成器生成scss、css、js
       g.scaffold_stylesheet false
       g.stylesheets     false
